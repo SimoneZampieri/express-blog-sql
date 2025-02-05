@@ -14,8 +14,12 @@ const show = (req, res) => {
   const id = req.params.id;
 
   const sqPost = "SELECT * FROM posts WHERE id = ?";
-
-  const sqContent = "SELECT  ";
+  connection.query(sqPost, [id], (err, results) => {
+    if (err) return res.status(500).json({ error: "Errore nella query" });
+    if (results.length === 0)
+      return res.status(404).json({ error: "Post non trovato" });
+    res.json(results[0]);
+  });
 };
 
 const store = (req, res) => {
