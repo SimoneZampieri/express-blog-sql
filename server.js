@@ -5,6 +5,8 @@ const port = 3000;
 const errorHand = require("./middlewares/errorHand");
 const notFound = require("./middlewares/notFound");
 
+const postRouter = require("./routes/postRouter");
+
 //parsing body
 app.use(express.json());
 
@@ -23,3 +25,6 @@ app.use(notFound);
 app.get("/", (req, res) => {
   res.send("Il mio BLOG");
 });
+
+//rotta post
+app.use("/posts", postRouter);
