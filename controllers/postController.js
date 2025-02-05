@@ -13,7 +13,7 @@ const index = (req, res) => {
 const show = (req, res) => {
   const id = req.params.id;
 
-  const sqPost = "SELECT * FROM blog WHERE id = ?";
+  const sqPost = "SELECT * FROM posts WHERE id = ?";
 
   const sqContent = "SELECT  ";
 };
@@ -29,7 +29,7 @@ const update = (req, res) => {
 
 const destroy = (req, res) => {
   const id = req.params.id;
-  const sql = "DELETE FROM blog WHERE id = ?";
+  const sql = "DELETE FROM posts WHERE id = ?";
 
   connection.query(sql, [id], (err) => {
     if (err) return res.status(500).json({ error: "Errore nella query" });
