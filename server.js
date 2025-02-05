@@ -15,12 +15,6 @@ app.listen(port, () => {
   console.log(`Sono in ascolto sulla porta ${port}`);
 });
 
-//error handling
-app.use(errorHand);
-
-//notFound handling
-app.use(notFound);
-
 //rotta 1
 app.get("/", (req, res) => {
   res.send("Il mio BLOG");
@@ -28,3 +22,9 @@ app.get("/", (req, res) => {
 
 //rotta post
 app.use("/posts", postRouter);
+
+//error handling
+app.use(errorHand);
+
+//notFound handling
+app.use(notFound);
